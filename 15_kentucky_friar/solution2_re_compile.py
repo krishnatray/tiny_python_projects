@@ -29,9 +29,10 @@ def main():
     """Make a jazz noise here"""
 
     args = get_args()
+    splitter = re.compile(r'(\W+)')
 
     for line in args.text.splitlines():
-        print(''.join(map(fry, re.split(r'(\W+)', line.rstrip()))))
+        print(''.join(map(fry, splitter(line.rstrip()))))
 
 
 # --------------------------------------------------
